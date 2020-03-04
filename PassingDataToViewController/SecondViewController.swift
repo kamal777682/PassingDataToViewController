@@ -15,12 +15,18 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.hidesBarsOnTap = true
         //Hide Back Button from navigation Bar
         self.navigationItem.hidesBackButton = true
         if let nm = name{
             self.lblWelcome.text = "Welcome, \(nm)"
             self.navigationItem.title = "Welcome ,\(nm)"
             self.addCloseButton() // create close button on second VC
+            
+            //self.navigationController?.popToRootViewController(animated: true)
+            let bvc = self.navigationController?.viewControllers[1] as! SecondViewController
+            self.navigationController?.popToViewController(bvc, animated: true)
+
         }
         else
         {
