@@ -13,7 +13,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
    
     
 
-    @IBOutlet weak var textName: UITextField!
+    @IBOutlet weak var textName : UITextField!
     
     @IBOutlet weak var countryPicker: UIPickerView!
     
