@@ -18,7 +18,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     @IBOutlet weak var countryPicker: UIPickerView!
     
     var countryList = ["India","China","USA","Japan","Sri Lanka","Pakistan"]
-    
+    var codeList = ["IN","CH","US","J","SL","P"]
     override func viewDidLoad() {
         super.viewDidLoad()
         countryPicker.delegate = self
@@ -42,26 +42,39 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     // to count the number of components
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
     
     // to count the values in picker View
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.countryList.count
+        if component == 0{
+            return self.countryList.count
+        }
+        return codeList.count
     }
     
     //to set values in picker view
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return countryList[row]
-    }
+        if component == 0
+        {
+            return countryList[row]
+        }
+        return codeList[row]
+        }
     
     // to display values in console
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(countryList[row])
+        if component == 0
+        {
+            print(countryList[row])
+        }
+        print(codeList[row])
     }
+    
+    
     
 }
 
