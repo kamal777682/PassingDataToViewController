@@ -20,6 +20,7 @@ class SecondViewController: UIViewController {
         if let nm = name{
             self.lblWelcome.text = "Welcome, \(nm)"
             self.navigationItem.title = "Welcome ,\(nm)"
+            self.addCloseButton() // create close button on second VC
         }
         else
         {
@@ -30,7 +31,7 @@ class SecondViewController: UIViewController {
     private func addCloseButton()
     {
         let btnClose = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(self.goBack))
-        self.navigationItem.ri
+        self.navigationItem.rightBarButtonItem = btnClose
     }
     @objc func goBack()
     {
